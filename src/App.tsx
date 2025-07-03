@@ -1,19 +1,26 @@
-import Footer from "./components/layout/Footer";
-import Header from "./components/layout/Header";
-import Layout from "./components/layout/Layout"
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-const App =() => {
-  return(
-    <Layout>
-      <Header title="PiyushSingh" subtitle="Hello from my side"/>
-      <main>
-        <p>Welcome to my portfolio website!</p>
-        <p>Here you can find information about my projects, skills, and experience.</p>
-        <p>Feel free to explore and get in touch!</p>
-      </main>
-      <Footer year={2023} brand="Piyush Singh" />
-    </Layout>
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
-};
+}
 
 export default App;

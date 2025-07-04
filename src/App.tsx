@@ -5,47 +5,54 @@ import Footer from "./components/layout/Footer";
 import CardList from "./components/featureSpecific/CardList";
 import FilterMenu from "./components/common/FilterMenu";
 import { CardData } from "./types/Card";
+import Modal from "./components/common/Modal";
+import myImage1 from './assets/images/image1.jpg';
+import myImage2 from './assets/images/image2.jpg';
+import myImage3 from './assets/images/image3.jpg';
+import myImage4 from './assets/images/image4.jpg';
+import myImage5 from './assets/images/image5.jpg';
 
 const allCards: CardData[] = [
   {
     id: 1,
     title: "React",
     description: "Learn to build components",
-    imageUrl: "https://source.unsplash.com/300x180/?react",
+    imageUrl: myImage1,
     category: "Frontend"
   },
   {
     id: 2,
     title: "TypeScript",
     description: "Type-safe components",
-    imageUrl: "https://source.unsplash.com/300x180/?typescript",
+    imageUrl: myImage2,
     category: "Frontend"
   },
   {
     id: 3,
     title: "Styled Components",
     description: "CSS in JS",
-    imageUrl: "https://source.unsplash.com/300x180/?css",
+    imageUrl: myImage3,
     category: "Styling"
   },
   {
     id: 4,
     title: "Node.js",
     description: "Backend with JavaScript",
-    imageUrl: "https://source.unsplash.com/300x180/?node",
+    imageUrl: myImage4,
     category: "Backend"
   },
   {
     id: 5,
     title: "MongoDB",
     description: "NoSQL database",
-    imageUrl: "https://source.unsplash.com/300x180/?mongodb",
+    imageUrl: myImage5,
     category: "Database"
   }
 ];
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedCard, setSelectedCard] = useState<CardData | null>(null);
 
   const filteredCards =
     selectedCategory === "All"
@@ -55,8 +62,13 @@ const App = () => {
   const categories = [...new Set(allCards.map((card) => card.category))];
 
   const handleCardClick = (id: number) => {
-    alert(`Card with ID ${id} clicked`);
+    const found = allCards.find((card)=> card.id === id);
+    if(found) setSelectedCard(found);
   };
+
+  const handleCloseModal = () =>{
+    setSelectedCard(null);
+  }
 
   return (
     <Layout>
@@ -71,6 +83,8 @@ const App = () => {
       <CardList cards={filteredCards} onCardClick={handleCardClick} />
 
       <Footer year={2025} brand="Piyush Inc." />
+
+      <Modal card={selectedCard} onClose={handleCloseModal} />
     </Layout>
   );
 };

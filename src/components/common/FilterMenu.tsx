@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const FilterWrapper = styled.div`
   display: flex;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;

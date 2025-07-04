@@ -6,6 +6,7 @@ const FilterWrapper = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
 `;
 

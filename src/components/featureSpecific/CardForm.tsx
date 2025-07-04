@@ -64,11 +64,19 @@ const CardForm:React.FC<CardFormProps>=({onCreate})=>{
             category
         };
         
+        // Call the onCreate function passed from the parent component
+        // This will add the new card to the list in the parent component
         onCreate(newCard);
+        console.log("onCreate called", newCard);
+
+        // Reset form fields
         setTitle("");
         setDescription("");
         setImageUrl("");
         setCategory("");
+
+        console.log({ title, description, imageUrl, category });
+        console.log("Form submitted");
 
     };
 

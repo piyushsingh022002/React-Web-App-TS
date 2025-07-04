@@ -73,7 +73,9 @@ const App = () => {
   };
 
   const handleCreateCard = (newCard: CardData) => {
+    console.log("Adding card to list:", newCard);
     setCards((prev) => [newCard, ...prev]);
+    console.log("Updated cards:", cards);
   };
 
   return (
